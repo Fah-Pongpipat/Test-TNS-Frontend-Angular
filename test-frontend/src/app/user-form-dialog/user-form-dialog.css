@@ -1,0 +1,90 @@
+/* Overlay ครอบหน้าจอทั้งหมด */
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* โปร่งเล็กน้อย */
+  display: flex;
+  justify-content: center; /* จัด horizontal กลาง */
+  align-items: center; /* จัด vertical กลาง */
+  z-index: 1000; /* ให้สูงกว่า element อื่น */
+}
+
+/* กล่อง dialog */
+.dialog {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%; /* responsive */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Arial', sans-serif;
+}
+
+/* หัวข้อ form */
+.dialog h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* label + input + select */
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+label input,
+label select {
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+label input:focus,
+label select:focus {
+  border-color: #007bff;
+}
+
+/* ปุ่มด้านล่าง */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.dialog-actions button {
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dialog-actions button[type='submit'] {
+  background-color: #007bff;
+  color: white;
+}
+
+.dialog-actions button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+.dialog-actions button[type='button'] {
+  background-color: #ccc;
+  color: #333;
+}
+
+.dialog-actions button[type='button']:hover {
+  background-color: #999;
+}

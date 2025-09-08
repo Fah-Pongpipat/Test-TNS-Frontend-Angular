@@ -1,0 +1,48 @@
+<!-- Dialog overlay -->
+<div *ngIf="showDialog" class="dialog-backdrop">
+    <div class="dialog">
+        <form #f="ngForm" (ngSubmit)="saveData()">
+            <!-- First Name -->
+            <label>
+                First Name:
+                <input type="text" name="first_name" [(ngModel)]="formData.first_name" required>
+            </label>
+
+            <!-- Last Name -->
+            <label>
+                Last Name:
+                <input type="text" name="last_name" [(ngModel)]="formData.last_name" required>
+            </label>
+
+            <!-- Email -->
+            <label>
+                Email:
+                <input type="email" name="email" [(ngModel)]="formData.email" required>
+            </label>
+
+            <!-- Phone -->
+            <label>
+                Phone:
+                <input type="text" name="phone" [(ngModel)]="formData.phone" required>
+            </label>
+
+            <!-- Department ID -->
+            <label>
+                Department:
+                <select name="department_id" [(ngModel)]="formData.department_id" required>
+                    <option value="" disabled selected>-- เลือก Department --</option>
+                    <option *ngFor="let dept of departments" [ngValue]="dept.department_id">
+                        {{ dept.department_name }}
+                    </option>
+                </select>
+            </label>
+
+
+            <!-- ปุ่มจัดการ -->
+            <div class="dialog-actions">
+                <button type="button" (click)="closeDialog()">ยกเลิก</button>
+                <button type="submit" [disabled]="f.invalid">บันทึก</button>
+            </div>
+        </form>
+    </div>
+</div>
